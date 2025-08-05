@@ -1,0 +1,190 @@
+name: evpnl3gw
+
+topology:
+  kinds:
+    ceos:
+      startup-config: ../../../ceos_lab_template/ceos.cfg.tpl
+      image: ceosimage:4.32.5M
+      # exec:
+      #   - sleep 10
+      #   - FastCli -p 15 -c 'security pki key generate rsa 2048 eAPI.key'
+      #   - FastCli -p 15 -c 'security pki certificate generate self-signed eAPI.crt key eAPI.key generate rsa 2048 validity 30000 parameters common-name eAPI'
+    linux:
+      image: alpine-host
+  nodes:
+    core1:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.61
+    core2:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.62
+    core3:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.63
+    dc1-spine1:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.11
+    dc1-spine2:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.12
+    dc1-spine3:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.13
+    dc1-border-leaf1:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.21
+    dc1-border-leaf2:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.22
+    dc1-border-leaf3:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.23
+    dc1-leaf1:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.31
+    dc1-leaf2:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.32
+    dc1-leaf3:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.33
+    dc1-leaf4:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.34
+    dc1-client1:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.51
+    dc1-client2:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.52
+    dc1-client3:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.53
+    dc1-client4:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.54
+    dc2-spine1:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.111
+    dc2-spine2:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.112
+    dc2-spine3:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.113
+    dc2-border-leaf1:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.121
+    dc2-border-leaf2:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.122
+    dc2-border-leaf3:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.123
+    dc2-leaf1:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.131
+    dc2-leaf2:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.132
+    dc2-leaf3:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.133
+    dc2-leaf4:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.134
+    dc2-client1:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.151
+    dc2-client2:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.152
+    dc2-client3:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.153
+    dc2-client4:
+      kind: ceos
+      mgmt-ipv4: 192.168.4.154
+
+
+  links:
+    - endpoints: ["dc1-leaf1:eth1", "dc1-spine1:eth1"]
+    - endpoints: ["dc1-leaf2:eth1", "dc1-spine1:eth2"]
+    - endpoints: ["dc1-leaf3:eth1", "dc1-spine1:eth3"]
+    - endpoints: ["dc1-leaf4:eth1", "dc1-spine1:eth4"]
+    - endpoints: ["dc1-leaf1:eth2", "dc1-spine2:eth1"]
+    - endpoints: ["dc1-leaf2:eth2", "dc1-spine2:eth2"]
+    - endpoints: ["dc1-leaf3:eth2", "dc1-spine2:eth3"]
+    - endpoints: ["dc1-leaf4:eth2", "dc1-spine2:eth4"]
+    - endpoints: ["dc1-leaf1:eth3", "dc1-spine3:eth1"]
+    - endpoints: ["dc1-leaf2:eth3", "dc1-spine3:eth2"]
+    - endpoints: ["dc1-leaf3:eth3", "dc1-spine3:eth3"]
+    - endpoints: ["dc1-leaf4:eth3", "dc1-spine3:eth4"]
+    - endpoints: ["dc1-leaf1:eth4", "dc1-client1:eth1"]
+    - endpoints: ["dc1-leaf1:eth5", "dc1-client1:eth2"]
+    - endpoints: ["dc1-leaf2:eth4", "dc1-client2:eth1"]
+    - endpoints: ["dc1-leaf2:eth5", "dc1-client2:eth2"]
+    - endpoints: ["dc1-leaf3:eth4", "dc1-client3:eth1"]
+    - endpoints: ["dc1-leaf3:eth5", "dc1-client3:eth2"]
+    - endpoints: ["dc1-leaf4:eth4", "dc1-client4:eth1"]
+    - endpoints: ["dc1-leaf4:eth5", "dc1-client4:eth2"]
+    - endpoints: ["dc1-spine1:eth5", "dc1-border-leaf1:eth1"]
+    - endpoints: ["dc1-spine2:eth5", "dc1-border-leaf1:eth2"]
+    - endpoints: ["dc1-spine3:eth5", "dc1-border-leaf1:eth3"]
+    - endpoints: ["dc1-spine1:eth6", "dc1-border-leaf2:eth1"]
+    - endpoints: ["dc1-spine2:eth6", "dc1-border-leaf2:eth2"]
+    - endpoints: ["dc1-spine3:eth6", "dc1-border-leaf2:eth3"]
+    - endpoints: ["dc1-spine1:eth7", "dc1-border-leaf3:eth1"]
+    - endpoints: ["dc1-spine2:eth7", "dc1-border-leaf3:eth2"]
+    - endpoints: ["dc1-spine3:eth7", "dc1-border-leaf3:eth3"]
+    - endpoints: ["dc2-leaf1:eth1", "dc2-spine1:eth1"]
+    - endpoints: ["dc2-leaf2:eth1", "dc2-spine1:eth2"]
+    - endpoints: ["dc2-leaf3:eth1", "dc2-spine1:eth3"]
+    - endpoints: ["dc2-leaf4:eth1", "dc2-spine1:eth4"]
+    - endpoints: ["dc2-leaf1:eth2", "dc2-spine2:eth1"]
+    - endpoints: ["dc2-leaf2:eth2", "dc2-spine2:eth2"]
+    - endpoints: ["dc2-leaf3:eth2", "dc2-spine2:eth3"]
+    - endpoints: ["dc2-leaf4:eth2", "dc2-spine2:eth4"]
+    - endpoints: ["dc2-leaf1:eth3", "dc2-spine3:eth1"]
+    - endpoints: ["dc2-leaf2:eth3", "dc2-spine3:eth2"]
+    - endpoints: ["dc2-leaf3:eth3", "dc2-spine3:eth3"]
+    - endpoints: ["dc2-leaf4:eth3", "dc2-spine3:eth4"]
+    - endpoints: ["dc2-leaf1:eth4", "dc2-client1:eth1"]
+    - endpoints: ["dc2-leaf1:eth5", "dc2-client1:eth2"]
+    - endpoints: ["dc2-leaf2:eth4", "dc2-client2:eth1"]
+    - endpoints: ["dc2-leaf2:eth5", "dc2-client2:eth2"]
+    - endpoints: ["dc2-leaf3:eth4", "dc2-client3:eth1"]
+    - endpoints: ["dc2-leaf3:eth5", "dc2-client3:eth2"]
+    - endpoints: ["dc2-leaf4:eth4", "dc2-client4:eth1"]
+    - endpoints: ["dc2-leaf4:eth5", "dc2-client4:eth2"]
+    - endpoints: ["dc2-spine1:eth5", "dc2-border-leaf1:eth1"]
+    - endpoints: ["dc2-spine2:eth5", "dc2-border-leaf1:eth2"]
+    - endpoints: ["dc2-spine3:eth5", "dc2-border-leaf1:eth3"]
+    - endpoints: ["dc2-spine1:eth6", "dc2-border-leaf2:eth1"]
+    - endpoints: ["dc2-spine2:eth6", "dc2-border-leaf2:eth2"]
+    - endpoints: ["dc2-spine3:eth6", "dc2-border-leaf2:eth3"]
+    - endpoints: ["dc2-spine1:eth7", "dc2-border-leaf3:eth1"]
+    - endpoints: ["dc2-spine2:eth7", "dc2-border-leaf3:eth2"]
+    - endpoints: ["dc2-spine3:eth7", "dc2-border-leaf3:eth3"]
+    - endpoints: ["dc1-border-leaf1:eth4", "core1:eth1"]
+    - endpoints: ["dc1-border-leaf2:eth4", "core1:eth2"]
+    - endpoints: ["dc1-border-leaf3:eth4", "core1:eth3"]
+    - endpoints: ["dc1-border-leaf1:eth5", "core2:eth1"]
+    - endpoints: ["dc1-border-leaf2:eth5", "core2:eth2"]
+    - endpoints: ["dc1-border-leaf3:eth5", "core2:eth3"]
+    - endpoints: ["dc1-border-leaf1:eth6", "core3:eth1"]
+    - endpoints: ["dc1-border-leaf2:eth6", "core3:eth2"]
+    - endpoints: ["dc1-border-leaf3:eth6", "core3:eth3"]
+    - endpoints: ["dc2-border-leaf1:eth4", "core1:eth4"]
+    - endpoints: ["dc2-border-leaf2:eth4", "core1:eth5"]
+    - endpoints: ["dc2-border-leaf3:eth4", "core1:eth6"]
+    - endpoints: ["dc2-border-leaf1:eth5", "core2:eth4"]
+    - endpoints: ["dc2-border-leaf2:eth5", "core2:eth5"]
+    - endpoints: ["dc2-border-leaf3:eth5", "core2:eth6"]
+    - endpoints: ["dc2-border-leaf1:eth6", "core3:eth4"]
+    - endpoints: ["dc2-border-leaf2:eth6", "core3:eth5"]
+    - endpoints: ["dc2-border-leaf3:eth6", "core3:eth6"]
+mgmt:
+  network: ceos_clab
+  ipv4-subnet: 192.168.4.0/24
+  # ipv6-subnet: 2001:172:100:100::/80

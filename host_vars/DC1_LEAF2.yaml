@@ -1,0 +1,27 @@
+---
+
+
+network_ports:
+  - switches:
+      - DC1_LEAF1B
+    switch_ports:
+      - Ethernet5
+    enabled: true
+    mtu: 1460
+    profile: int_routed_host
+    structured_config:
+      ip_address: 10.192.195.55/24
+      vrf: RED
+      description: Routed_Interface_E5_To_DC1-CLIENT2_Eth1
+
+  - switches:
+      - DC1_LEAF1B
+    switch_ports:
+      - Ethernet6
+    enabled: true
+    mtu: 1450
+    profile: int_routed_host
+    structured_config:
+      ip_address: 10.99.99.66/24
+      vrf: BLUE
+      description: Routed_Interface_E6_To_DC1-CLIENT2_Eth2

@@ -1,0 +1,97 @@
+all:
+  children:
+    AVD_FABRIC:
+      children:
+        WAN_ROUTER:
+          hosts:
+            CORE1:
+              ansible_host: 192.168.4.61
+            CORE2:
+              ansible_host: 192.168.4.62
+            CORE3:
+              ansible_host: 192.168.4.63
+        DC1:
+          children:
+            DC1_SPINES:
+              hosts:
+                DC1_SPINE1:
+                  ansible_host: 192.168.4.11
+                DC1_SPINE2:
+                  ansible_host: 192.168.4.12
+                DC1_SPINE3:
+                  ansible_host: 192.168.4.13
+            DC1_LEAVES:
+              children:
+                DC1_LEAF:
+                  hosts:
+                    DC1_LEAF1:
+                      ansible_host: 192.168.4.31
+                    DC1_LEAF2:
+                      ansible_host: 192.168.4.32
+                    DC1_LEAF3:
+                      ansible_host: 192.168.4.33
+                    DC1_LEAF4:
+                      ansible_host: 192.168.4.34
+            DC1_BORDER_LEAVES:
+              hosts:
+                DC1_BORDER_LEAF1:
+                  ansible_host: 192.168.4.21
+                DC1_BORDER_LEAF2:
+                  ansible_host: 192.168.4.22
+                DC1_BORDER_LEAF3:
+                  ansible_host: 192.168.4.23
+
+        DC2:
+          children:
+            DC2_SPINES:
+              hosts:
+                DC2_SPINE1:
+                  ansible_host: 192.168.4.111
+                DC2_SPINE2:
+                  ansible_host: 192.168.4.112
+                DC2_SPINE3:
+                  ansible_host: 192.168.4.113
+            DC2_LEAVES:
+              children:
+                DC2_LEAF:
+                  hosts:
+                    DC2_LEAF1:
+                      ansible_host: 192.168.4.131
+                    DC2_LEAF2:
+                      ansible_host: 192.168.4.132
+                    DC2_LEAF3:
+                      ansible_host: 192.168.4.133
+                    DC2_LEAF4:
+                      ansible_host: 192.168.4.134
+            DC2_BORDER_LEAVES:
+              hosts:
+                DC2_BORDER_LEAF1:
+                  ansible_host: 192.168.4.121
+                DC2_BORDER_LEAF2:
+                  ansible_host: 192.168.4.122
+                DC2_BORDER_LEAF3:
+                  ansible_host: 192.168.4.123
+
+      vars:
+        ansible_connection: httpapi
+        ansible_httpapi_use_ssl: true
+        ansible_httpapi_validate_certs: false
+        ansible_user: admin
+        ansible_password: admin
+        ansible_become: true
+        ansible_become_method: enable
+        ansible_network_os: eos
+        ansible_httpapi_port: 443
+        ansible_python_interpreter: $(which python3)
+
+    TENANTS_NETWORKS:
+      children:
+        DC1_LEAVES:
+        DC2_LEAVES:
+        DC1_BORDER_LEAVES:
+        DC2_BORDER_LEAVES:
+    PORT_PROFILES:
+      children:
+        DC1_LEAVES:
+        DC2_LEAVES:
+

@@ -1,0 +1,122 @@
+---
+dc_name: DC2
+
+
+
+spine:
+  defaults:
+    platform: cEOS-LAB
+    bgp_as: '65200'
+    loopback_ipv4_pool: 10.255.20.0/24
+  nodes:
+    - name: DC2_SPINE1
+      id: 1
+      mgmt_ip: 192.168.4.111/24
+    - name: DC2_SPINE2
+      id: 2
+      mgmt_ip: 192.168.4.112/24
+    - name: DC2_SPINE3
+      id: 3
+      mgmt_ip: 192.168.4.113/24
+
+l3leaf:
+  defaults:
+    platform: cEOS-LAB
+    uplink_switches:
+      - DC2_SPINE1
+      - DC2_SPINE2
+      - DC2_SPINE3
+    uplink_interfaces:
+      - Ethernet1
+      - Ethernet2
+      - Ethernet3
+    virtual_router_mac_address: 02:05:02:05:02:05
+    spanning_tree_mode: mstp
+    spanning_tree_priority: 4096
+    loopback_ipv4_pool: 10.255.20.0/24
+    loopback_ipv4_offset: 0
+    vtep_loopback_ipv4_pool: 10.255.21.0/24
+    uplink_ipv4_pool: 172.31.20.0/24
+  node_groups:
+    - group: DC2_LEAF
+      filter:
+        tenants:
+          - Tenant_A
+        # tags:
+        #   - dc2_pod1
+      nodes:
+        - name: DC2_LEAF1
+          bgp_as: '65201'
+          id: 35
+          mgmt_ip: 192.168.4.131/24
+          uplink_switch_interfaces:
+            - Ethernet1
+            - Ethernet1
+            - Ethernet1
+        - name: DC2_LEAF2
+          bgp_as: '65202'
+          id: 36
+          mgmt_ip: 192.168.4.132/24
+          uplink_switch_interfaces:
+            - Ethernet2
+            - Ethernet2
+            - Ethernet2
+        - name: DC2_LEAF3
+          bgp_as: '65203'
+          id: 37
+          mgmt_ip: 192.168.4.133/24
+          uplink_switch_interfaces:
+            - Ethernet3
+            - Ethernet3
+            - Ethernet3
+        - name: DC2_LEAF4
+          bgp_as: '65204'
+          id: 38
+          mgmt_ip: 192.168.4.134/24
+          uplink_switch_interfaces:
+            - Ethernet4
+            - Ethernet4
+            - Ethernet4
+    - group: DC2_BORDER_LEAVES
+      evpn_gateway:
+        remote_peers:
+          - hostname: DC1_BORDER_LEAF1
+          - hostname: DC1_BORDER_LEAF2
+          - hostname: DC1_BORDER_LEAF3
+        evpn_l2:
+          enabled: true
+        evpn_l3:
+          enabled: true
+          inter_domain: true
+      filter:
+        tenants:
+          - Tenant_A
+        # tags:
+        #   - none
+        always_include_vrfs_in_tenants:
+          - Tenant_A
+      nodes:
+        - name: DC2_BORDER_LEAF1
+          bgp_as: '65221'
+          id: 24
+          mgmt_ip: 192.168.4.121/24
+          uplink_switch_interfaces:
+            - Ethernet5
+            - Ethernet5
+            - Ethernet5
+        - name: DC2_BORDER_LEAF2
+          bgp_as: '65222'
+          id: 25
+          mgmt_ip: 192.168.4.122/24
+          uplink_switch_interfaces:
+            - Ethernet6
+            - Ethernet6
+            - Ethernet6
+        - name: DC2_BORDER_LEAF3
+          bgp_as: '65223'
+          id: 26
+          mgmt_ip: 192.168.4.123/24
+          uplink_switch_interfaces:
+            - Ethernet7
+            - Ethernet7
+            - Ethernet7
