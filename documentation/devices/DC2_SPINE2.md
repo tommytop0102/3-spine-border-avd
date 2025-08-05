@@ -222,13 +222,13 @@ vlan internal order ascending range 1006 1199
 
 | Interface | Description | Type | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | -----| ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet1 | P2P_LINK_TO_DC2_LEAF1_Ethernet2 | routed | - | 172.31.20.206/31 | default | 9214 | False | - | - |
-| Ethernet2 | P2P_LINK_TO_DC2_LEAF2_Ethernet2 | routed | - | 172.31.20.212/31 | default | 9214 | False | - | - |
-| Ethernet3 | P2P_LINK_TO_DC2_LEAF3_Ethernet2 | routed | - | 172.31.20.218/31 | default | 9214 | False | - | - |
-| Ethernet4 | P2P_LINK_TO_DC2_LEAF4_Ethernet2 | routed | - | 172.31.20.224/31 | default | 9214 | False | - | - |
-| Ethernet5 | P2P_LINK_TO_DC2_BORDER_LEAF1_Ethernet2 | routed | - | 172.31.20.140/31 | default | 9214 | False | - | - |
-| Ethernet6 | P2P_LINK_TO_DC2_BORDER_LEAF2_Ethernet2 | routed | - | 172.31.20.146/31 | default | 9214 | False | - | - |
-| Ethernet7 | P2P_LINK_TO_DC2_BORDER_LEAF3_Ethernet2 | routed | - | 172.31.20.152/31 | default | 9214 | False | - | - |
+| Ethernet1 | P2P_LINK_TO_DC2_LEAF1_Ethernet2 | routed | - | 172.31.20.140/31 | default | 9214 | False | - | - |
+| Ethernet2 | P2P_LINK_TO_DC2_LEAF2_Ethernet2 | routed | - | 172.31.20.146/31 | default | 9214 | False | - | - |
+| Ethernet3 | P2P_LINK_TO_DC2_LEAF3_Ethernet2 | routed | - | 172.31.20.152/31 | default | 9214 | False | - | - |
+| Ethernet4 | P2P_LINK_TO_DC2_LEAF4_Ethernet2 | routed | - | 172.31.20.158/31 | default | 9214 | False | - | - |
+| Ethernet5 | P2P_LINK_TO_DC2_BORDER_LEAF1_Ethernet2 | routed | - | 172.31.20.122/31 | default | 9214 | False | - | - |
+| Ethernet6 | P2P_LINK_TO_DC2_BORDER_LEAF2_Ethernet2 | routed | - | 172.31.20.128/31 | default | 9214 | False | - | - |
+| Ethernet7 | P2P_LINK_TO_DC2_BORDER_LEAF3_Ethernet2 | routed | - | 172.31.20.134/31 | default | 9214 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
@@ -239,49 +239,49 @@ interface Ethernet1
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.206/31
+   ip address 172.31.20.140/31
 !
 interface Ethernet2
    description P2P_LINK_TO_DC2_LEAF2_Ethernet2
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.212/31
+   ip address 172.31.20.146/31
 !
 interface Ethernet3
    description P2P_LINK_TO_DC2_LEAF3_Ethernet2
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.218/31
+   ip address 172.31.20.152/31
 !
 interface Ethernet4
    description P2P_LINK_TO_DC2_LEAF4_Ethernet2
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.224/31
+   ip address 172.31.20.158/31
 !
 interface Ethernet5
    description P2P_LINK_TO_DC2_BORDER_LEAF1_Ethernet2
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.140/31
+   ip address 172.31.20.122/31
 !
 interface Ethernet6
    description P2P_LINK_TO_DC2_BORDER_LEAF2_Ethernet2
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.146/31
+   ip address 172.31.20.128/31
 !
 interface Ethernet7
    description P2P_LINK_TO_DC2_BORDER_LEAF3_Ethernet2
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.152/31
+   ip address 172.31.20.134/31
 ```
 
 ### Loopback Interfaces
@@ -404,20 +404,20 @@ ASN Notation: asplain
 
 | Neighbor | Remote AS | VRF | Shutdown | Send-community | Maximum-routes | Allowas-in | BFD | RIB Pre-Policy Retain | Route-Reflector Client | Passive | TTL Max Hops |
 | -------- | --------- | --- | -------- | -------------- | -------------- | ---------- | --- | --------------------- | ---------------------- | ------- | ------------ |
-| 10.255.20.24 | 65221 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.25 | 65222 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.26 | 65223 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.35 | 65201 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.36 | 65202 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.37 | 65203 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.38 | 65204 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 172.31.20.141 | 65221 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.20.147 | 65222 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.20.153 | 65223 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.20.207 | 65201 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.20.213 | 65202 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.20.219 | 65203 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.20.225 | 65204 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 10.255.20.21 | 65221 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.22 | 65222 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.23 | 65223 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.24 | 65201 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.25 | 65202 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.26 | 65203 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.27 | 65204 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 172.31.20.123 | 65221 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.20.129 | 65222 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.20.135 | 65223 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.20.141 | 65201 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.20.147 | 65202 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.20.153 | 65203 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.20.159 | 65204 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 
 #### Router BGP EVPN Address Family
 
@@ -446,48 +446,48 @@ router bgp 65200
    neighbor IPv4-UNDERLAY-PEERS peer group
    neighbor IPv4-UNDERLAY-PEERS send-community
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
+   neighbor 10.255.20.21 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.21 remote-as 65221
+   neighbor 10.255.20.21 description DC2_BORDER_LEAF1
+   neighbor 10.255.20.22 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.22 remote-as 65222
+   neighbor 10.255.20.22 description DC2_BORDER_LEAF2
+   neighbor 10.255.20.23 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.23 remote-as 65223
+   neighbor 10.255.20.23 description DC2_BORDER_LEAF3
    neighbor 10.255.20.24 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.24 remote-as 65221
-   neighbor 10.255.20.24 description DC2_BORDER_LEAF1
+   neighbor 10.255.20.24 remote-as 65201
+   neighbor 10.255.20.24 description DC2_LEAF1
    neighbor 10.255.20.25 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.25 remote-as 65222
-   neighbor 10.255.20.25 description DC2_BORDER_LEAF2
+   neighbor 10.255.20.25 remote-as 65202
+   neighbor 10.255.20.25 description DC2_LEAF2
    neighbor 10.255.20.26 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.26 remote-as 65223
-   neighbor 10.255.20.26 description DC2_BORDER_LEAF3
-   neighbor 10.255.20.35 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.35 remote-as 65201
-   neighbor 10.255.20.35 description DC2_LEAF1
-   neighbor 10.255.20.36 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.36 remote-as 65202
-   neighbor 10.255.20.36 description DC2_LEAF2
-   neighbor 10.255.20.37 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.37 remote-as 65203
-   neighbor 10.255.20.37 description DC2_LEAF3
-   neighbor 10.255.20.38 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.38 remote-as 65204
-   neighbor 10.255.20.38 description DC2_LEAF4
+   neighbor 10.255.20.26 remote-as 65203
+   neighbor 10.255.20.26 description DC2_LEAF3
+   neighbor 10.255.20.27 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.27 remote-as 65204
+   neighbor 10.255.20.27 description DC2_LEAF4
+   neighbor 172.31.20.123 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.20.123 remote-as 65221
+   neighbor 172.31.20.123 description DC2_BORDER_LEAF1_Ethernet2
+   neighbor 172.31.20.129 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.20.129 remote-as 65222
+   neighbor 172.31.20.129 description DC2_BORDER_LEAF2_Ethernet2
+   neighbor 172.31.20.135 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.20.135 remote-as 65223
+   neighbor 172.31.20.135 description DC2_BORDER_LEAF3_Ethernet2
    neighbor 172.31.20.141 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.141 remote-as 65221
-   neighbor 172.31.20.141 description DC2_BORDER_LEAF1_Ethernet2
+   neighbor 172.31.20.141 remote-as 65201
+   neighbor 172.31.20.141 description DC2_LEAF1_Ethernet2
    neighbor 172.31.20.147 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.147 remote-as 65222
-   neighbor 172.31.20.147 description DC2_BORDER_LEAF2_Ethernet2
+   neighbor 172.31.20.147 remote-as 65202
+   neighbor 172.31.20.147 description DC2_LEAF2_Ethernet2
    neighbor 172.31.20.153 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.153 remote-as 65223
-   neighbor 172.31.20.153 description DC2_BORDER_LEAF3_Ethernet2
-   neighbor 172.31.20.207 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.207 remote-as 65201
-   neighbor 172.31.20.207 description DC2_LEAF1_Ethernet2
-   neighbor 172.31.20.213 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.213 remote-as 65202
-   neighbor 172.31.20.213 description DC2_LEAF2_Ethernet2
-   neighbor 172.31.20.219 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.219 remote-as 65203
-   neighbor 172.31.20.219 description DC2_LEAF3_Ethernet2
-   neighbor 172.31.20.225 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.225 remote-as 65204
-   neighbor 172.31.20.225 description DC2_LEAF4_Ethernet2
+   neighbor 172.31.20.153 remote-as 65203
+   neighbor 172.31.20.153 description DC2_LEAF3_Ethernet2
+   neighbor 172.31.20.159 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.20.159 remote-as 65204
+   neighbor 172.31.20.159 description DC2_LEAF4_Ethernet2
    redistribute connected route-map RM-CONN-2-BGP
    !
    address-family evpn

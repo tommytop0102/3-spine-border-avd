@@ -260,9 +260,9 @@ vlan 112
 
 | Interface | Description | Type | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | -----| ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet1 | P2P_LINK_TO_DC2_SPINE1_Ethernet5 | routed | - | 172.31.20.139/31 | default | 9214 | False | - | - |
-| Ethernet2 | P2P_LINK_TO_DC2_SPINE2_Ethernet5 | routed | - | 172.31.20.141/31 | default | 9214 | False | - | - |
-| Ethernet3 | P2P_LINK_TO_DC2_SPINE3_Ethernet5 | routed | - | 172.31.20.143/31 | default | 9214 | False | - | - |
+| Ethernet1 | P2P_LINK_TO_DC2_SPINE1_Ethernet5 | routed | - | 172.31.20.121/31 | default | 9214 | False | - | - |
+| Ethernet2 | P2P_LINK_TO_DC2_SPINE2_Ethernet5 | routed | - | 172.31.20.123/31 | default | 9214 | False | - | - |
+| Ethernet3 | P2P_LINK_TO_DC2_SPINE3_Ethernet5 | routed | - | 172.31.20.125/31 | default | 9214 | False | - | - |
 | Ethernet4 | P2P_LINK_TO_CORE1_Ethernet4 | routed | - | 172.16.30.80/31 | default | 9214 | False | - | - |
 | Ethernet5 | P2P_LINK_TO_CORE2_Ethernet4 | routed | - | 172.16.30.82/31 | default | 9214 | False | - | - |
 | Ethernet6 | P2P_LINK_TO_CORE3_Ethernet4 | routed | - | 172.16.30.84/31 | default | 9214 | False | - | - |
@@ -276,21 +276,21 @@ interface Ethernet1
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.139/31
+   ip address 172.31.20.121/31
 !
 interface Ethernet2
    description P2P_LINK_TO_DC2_SPINE2_Ethernet5
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.141/31
+   ip address 172.31.20.123/31
 !
 interface Ethernet3
    description P2P_LINK_TO_DC2_SPINE3_Ethernet5
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.20.143/31
+   ip address 172.31.20.125/31
 !
 interface Ethernet4
    description P2P_LINK_TO_CORE1_Ethernet4
@@ -322,9 +322,9 @@ interface Ethernet6
 
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
-| Loopback0 | EVPN_Overlay_Peering | default | 10.255.20.24/32 |
-| Loopback1 | VTEP_VXLAN_Tunnel_Source | default | 10.255.21.24/32 |
-| Loopback110 | RED_VTEP_DIAGNOSTICS | RED | 10.255.110.24/32 |
+| Loopback0 | EVPN_Overlay_Peering | default | 10.255.20.21/32 |
+| Loopback1 | VTEP_VXLAN_Tunnel_Source | default | 10.255.21.21/32 |
+| Loopback110 | RED_VTEP_DIAGNOSTICS | RED | 10.255.110.21/32 |
 
 ##### IPv6
 
@@ -341,18 +341,18 @@ interface Ethernet6
 interface Loopback0
    description EVPN_Overlay_Peering
    no shutdown
-   ip address 10.255.20.24/32
+   ip address 10.255.20.21/32
 !
 interface Loopback1
    description VTEP_VXLAN_Tunnel_Source
    no shutdown
-   ip address 10.255.21.24/32
+   ip address 10.255.21.21/32
 !
 interface Loopback110
    description RED_VTEP_DIAGNOSTICS
    no shutdown
    vrf RED
-   ip address 10.255.110.24/32
+   ip address 10.255.110.21/32
 ```
 
 ### VLAN Interfaces
@@ -499,7 +499,7 @@ ASN Notation: asplain
 
 | BGP AS | Router ID |
 | ------ | --------- |
-| 65221 | 10.255.20.24 |
+| 65221 | 10.255.20.21 |
 
 | BGP Tuning |
 | ---------- |
@@ -543,18 +543,18 @@ ASN Notation: asplain
 
 | Neighbor | Remote AS | VRF | Shutdown | Send-community | Maximum-routes | Allowas-in | BFD | RIB Pre-Policy Retain | Route-Reflector Client | Passive | TTL Max Hops |
 | -------- | --------- | --- | -------- | -------------- | -------------- | ---------- | --- | --------------------- | ---------------------- | ------- | ------------ |
-| 10.255.10.21 | 65121 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
-| 10.255.10.22 | 65122 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
-| 10.255.10.23 | 65123 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
+| 10.255.10.11 | 65121 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
+| 10.255.10.12 | 65122 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
+| 10.255.10.13 | 65123 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
 | 10.255.20.4 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 10.255.20.5 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 10.255.20.6 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 172.16.30.81 | 65300 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 172.16.30.83 | 65300 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 172.16.30.85 | 65300 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.20.138 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.20.140 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.20.142 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.20.120 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.20.122 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.20.124 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 
 #### Router BGP EVPN Address Family
 
@@ -577,21 +577,21 @@ ASN Notation: asplain
 
 | VLAN | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute |
 | ---- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ |
-| 111 | 10.255.20.24:10111 | 10111:10111<br>remote 10111:10111 | - | - | learned |
-| 112 | 10.255.20.24:10112 | 10112:10112<br>remote 10112:10112 | - | - | learned |
+| 111 | 10.255.20.21:10111 | 10111:10111<br>remote 10111:10111 | - | - | learned |
+| 112 | 10.255.20.21:10112 | 10112:10112<br>remote 10112:10112 | - | - | learned |
 
 #### Router BGP VRFs
 
 | VRF | Route-Distinguisher | Redistribute |
 | --- | ------------------- | ------------ |
-| RED | 10.255.20.24:110 | connected |
+| RED | 10.255.20.21:110 | connected |
 
 #### Router BGP Device Configuration
 
 ```eos
 !
 router bgp 65221
-   router-id 10.255.20.24
+   router-id 10.255.20.21
    distance bgp 20 200 200
    maximum-paths 4 ecmp 4
    no bgp default ipv4-unicast
@@ -610,15 +610,15 @@ router bgp 65221
    neighbor IPv4-UNDERLAY-PEERS peer group
    neighbor IPv4-UNDERLAY-PEERS send-community
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
-   neighbor 10.255.10.21 peer group EVPN-OVERLAY-CORE
-   neighbor 10.255.10.21 remote-as 65121
-   neighbor 10.255.10.21 description DC1_BORDER_LEAF1
-   neighbor 10.255.10.22 peer group EVPN-OVERLAY-CORE
-   neighbor 10.255.10.22 remote-as 65122
-   neighbor 10.255.10.22 description DC1_BORDER_LEAF2
-   neighbor 10.255.10.23 peer group EVPN-OVERLAY-CORE
-   neighbor 10.255.10.23 remote-as 65123
-   neighbor 10.255.10.23 description DC1_BORDER_LEAF3
+   neighbor 10.255.10.11 peer group EVPN-OVERLAY-CORE
+   neighbor 10.255.10.11 remote-as 65121
+   neighbor 10.255.10.11 description DC1_BORDER_LEAF1
+   neighbor 10.255.10.12 peer group EVPN-OVERLAY-CORE
+   neighbor 10.255.10.12 remote-as 65122
+   neighbor 10.255.10.12 description DC1_BORDER_LEAF2
+   neighbor 10.255.10.13 peer group EVPN-OVERLAY-CORE
+   neighbor 10.255.10.13 remote-as 65123
+   neighbor 10.255.10.13 description DC1_BORDER_LEAF3
    neighbor 10.255.20.4 peer group EVPN-OVERLAY-PEERS
    neighbor 10.255.20.4 remote-as 65200
    neighbor 10.255.20.4 description DC2_SPINE1
@@ -640,27 +640,27 @@ router bgp 65221
    neighbor 172.16.30.85 remote-as 65300
    neighbor 172.16.30.85 local-as 65205 no-prepend replace-as
    neighbor 172.16.30.85 description CORE3
-   neighbor 172.31.20.138 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.138 remote-as 65200
-   neighbor 172.31.20.138 description DC2_SPINE1_Ethernet5
-   neighbor 172.31.20.140 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.140 remote-as 65200
-   neighbor 172.31.20.140 description DC2_SPINE2_Ethernet5
-   neighbor 172.31.20.142 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.20.142 remote-as 65200
-   neighbor 172.31.20.142 description DC2_SPINE3_Ethernet5
+   neighbor 172.31.20.120 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.20.120 remote-as 65200
+   neighbor 172.31.20.120 description DC2_SPINE1_Ethernet5
+   neighbor 172.31.20.122 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.20.122 remote-as 65200
+   neighbor 172.31.20.122 description DC2_SPINE2_Ethernet5
+   neighbor 172.31.20.124 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.20.124 remote-as 65200
+   neighbor 172.31.20.124 description DC2_SPINE3_Ethernet5
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan 111
-      rd 10.255.20.24:10111
-      rd evpn domain remote 10.255.20.24:10111
+      rd 10.255.20.21:10111
+      rd evpn domain remote 10.255.20.21:10111
       route-target both 10111:10111
       route-target import export evpn domain remote 10111:10111
       redistribute learned
    !
    vlan 112
-      rd 10.255.20.24:10112
-      rd evpn domain remote 10.255.20.24:10112
+      rd 10.255.20.21:10112
+      rd evpn domain remote 10.255.20.21:10112
       route-target both 10112:10112
       route-target import export evpn domain remote 10112:10112
       redistribute learned
@@ -681,10 +681,10 @@ router bgp 65221
       neighbor IPv4-UNDERLAY-PEERS activate
    !
    vrf RED
-      rd 10.255.20.24:110
+      rd 10.255.20.21:110
       route-target import evpn 110:110
       route-target export evpn 110:110
-      router-id 10.255.20.24
+      router-id 10.255.20.21
       redistribute connected
 ```
 
@@ -785,11 +785,11 @@ vrf instance RED
 
 | Source NAT VRF | Source NAT IP Address |
 | -------------- | --------------------- |
-| RED | 10.255.110.24 |
+| RED | 10.255.110.21 |
 
 ### Virtual Source NAT Configuration
 
 ```eos
 !
-ip address virtual source-nat vrf RED address 10.255.110.24
+ip address virtual source-nat vrf RED address 10.255.110.21
 ```

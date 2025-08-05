@@ -260,9 +260,9 @@ vlan 112
 
 | Interface | Description | Type | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | -----| ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet1 | P2P_LINK_TO_DC1_SPINE1_Ethernet2 | routed | - | 172.31.10.187/31 | default | 9214 | False | - | - |
-| Ethernet2 | P2P_LINK_TO_DC1_SPINE2_Ethernet2 | routed | - | 172.31.10.189/31 | default | 9214 | False | - | - |
-| Ethernet3 | P2P_LINK_TO_DC1_SPINE3_Ethernet2 | routed | - | 172.31.10.191/31 | default | 9214 | False | - | - |
+| Ethernet1 | P2P_LINK_TO_DC1_SPINE1_Ethernet2 | routed | - | 172.31.10.85/31 | default | 9214 | False | - | - |
+| Ethernet2 | P2P_LINK_TO_DC1_SPINE2_Ethernet2 | routed | - | 172.31.10.87/31 | default | 9214 | False | - | - |
+| Ethernet3 | P2P_LINK_TO_DC1_SPINE3_Ethernet2 | routed | - | 172.31.10.89/31 | default | 9214 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
@@ -273,21 +273,21 @@ interface Ethernet1
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.10.187/31
+   ip address 172.31.10.85/31
 !
 interface Ethernet2
    description P2P_LINK_TO_DC1_SPINE2_Ethernet2
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.10.189/31
+   ip address 172.31.10.87/31
 !
 interface Ethernet3
    description P2P_LINK_TO_DC1_SPINE3_Ethernet2
    no shutdown
    mtu 9214
    no switchport
-   ip address 172.31.10.191/31
+   ip address 172.31.10.89/31
 ```
 
 ### Loopback Interfaces
@@ -298,9 +298,9 @@ interface Ethernet3
 
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
-| Loopback0 | EVPN_Overlay_Peering | default | 10.255.10.32/32 |
-| Loopback1 | VTEP_VXLAN_Tunnel_Source | default | 10.255.11.32/32 |
-| Loopback110 | RED_VTEP_DIAGNOSTICS | RED | 10.255.110.32/32 |
+| Loopback0 | EVPN_Overlay_Peering | default | 10.255.10.15/32 |
+| Loopback1 | VTEP_VXLAN_Tunnel_Source | default | 10.255.11.15/32 |
+| Loopback110 | RED_VTEP_DIAGNOSTICS | RED | 10.255.110.15/32 |
 
 ##### IPv6
 
@@ -317,18 +317,18 @@ interface Ethernet3
 interface Loopback0
    description EVPN_Overlay_Peering
    no shutdown
-   ip address 10.255.10.32/32
+   ip address 10.255.10.15/32
 !
 interface Loopback1
    description VTEP_VXLAN_Tunnel_Source
    no shutdown
-   ip address 10.255.11.32/32
+   ip address 10.255.11.15/32
 !
 interface Loopback110
    description RED_VTEP_DIAGNOSTICS
    no shutdown
    vrf RED
-   ip address 10.255.110.32/32
+   ip address 10.255.110.15/32
 ```
 
 ### VLAN Interfaces
@@ -475,7 +475,7 @@ ASN Notation: asplain
 
 | BGP AS | Router ID |
 | ------ | --------- |
-| 65102 | 10.255.10.32 |
+| 65102 | 10.255.10.15 |
 
 | BGP Tuning |
 | ---------- |
@@ -511,9 +511,9 @@ ASN Notation: asplain
 | 10.255.10.1 | 65100 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 10.255.10.2 | 65100 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 10.255.10.3 | 65100 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 172.31.10.186 | 65100 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.10.188 | 65100 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
-| 172.31.10.190 | 65100 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.10.84 | 65100 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.10.86 | 65100 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 172.31.10.88 | 65100 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 
 #### Router BGP EVPN Address Family
 
@@ -527,21 +527,21 @@ ASN Notation: asplain
 
 | VLAN | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute |
 | ---- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ |
-| 111 | 10.255.10.32:10111 | 10111:10111 | - | - | learned |
-| 112 | 10.255.10.32:10112 | 10112:10112 | - | - | learned |
+| 111 | 10.255.10.15:10111 | 10111:10111 | - | - | learned |
+| 112 | 10.255.10.15:10112 | 10112:10112 | - | - | learned |
 
 #### Router BGP VRFs
 
 | VRF | Route-Distinguisher | Redistribute |
 | --- | ------------------- | ------------ |
-| RED | 10.255.10.32:110 | connected |
+| RED | 10.255.10.15:110 | connected |
 
 #### Router BGP Device Configuration
 
 ```eos
 !
 router bgp 65102
-   router-id 10.255.10.32
+   router-id 10.255.10.15
    distance bgp 20 200 200
    maximum-paths 4 ecmp 4
    no bgp default ipv4-unicast
@@ -563,24 +563,24 @@ router bgp 65102
    neighbor 10.255.10.3 peer group EVPN-OVERLAY-PEERS
    neighbor 10.255.10.3 remote-as 65100
    neighbor 10.255.10.3 description DC1_SPINE3
-   neighbor 172.31.10.186 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.10.186 remote-as 65100
-   neighbor 172.31.10.186 description DC1_SPINE1_Ethernet2
-   neighbor 172.31.10.188 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.10.188 remote-as 65100
-   neighbor 172.31.10.188 description DC1_SPINE2_Ethernet2
-   neighbor 172.31.10.190 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.10.190 remote-as 65100
-   neighbor 172.31.10.190 description DC1_SPINE3_Ethernet2
+   neighbor 172.31.10.84 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.10.84 remote-as 65100
+   neighbor 172.31.10.84 description DC1_SPINE1_Ethernet2
+   neighbor 172.31.10.86 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.10.86 remote-as 65100
+   neighbor 172.31.10.86 description DC1_SPINE2_Ethernet2
+   neighbor 172.31.10.88 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.10.88 remote-as 65100
+   neighbor 172.31.10.88 description DC1_SPINE3_Ethernet2
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan 111
-      rd 10.255.10.32:10111
+      rd 10.255.10.15:10111
       route-target both 10111:10111
       redistribute learned
    !
    vlan 112
-      rd 10.255.10.32:10112
+      rd 10.255.10.15:10112
       route-target both 10112:10112
       redistribute learned
    !
@@ -592,10 +592,10 @@ router bgp 65102
       neighbor IPv4-UNDERLAY-PEERS activate
    !
    vrf RED
-      rd 10.255.10.32:110
+      rd 10.255.10.15:110
       route-target import evpn 110:110
       route-target export evpn 110:110
-      router-id 10.255.10.32
+      router-id 10.255.10.15
       redistribute connected
 ```
 
@@ -696,11 +696,11 @@ vrf instance RED
 
 | Source NAT VRF | Source NAT IP Address |
 | -------------- | --------------------- |
-| RED | 10.255.110.32 |
+| RED | 10.255.110.15 |
 
 ### Virtual Source NAT Configuration
 
 ```eos
 !
-ip address virtual source-nat vrf RED address 10.255.110.32
+ip address virtual source-nat vrf RED address 10.255.110.15
 ```

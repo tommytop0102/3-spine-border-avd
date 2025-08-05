@@ -2,7 +2,7 @@ hostname: DC1_LEAF2
 is_deployed: true
 router_bgp:
   as: '65102'
-  router_id: 10.255.10.32
+  router_id: 10.255.10.15
   distance:
     external_routes: 20
     internal_routes: 200
@@ -35,17 +35,17 @@ router_bgp:
   - source_protocol: connected
     route_map: RM-CONN-2-BGP
   neighbors:
-  - ip_address: 172.31.10.186
+  - ip_address: 172.31.10.84
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65100'
     peer: DC1_SPINE1
     description: DC1_SPINE1_Ethernet2
-  - ip_address: 172.31.10.188
+  - ip_address: 172.31.10.86
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65100'
     peer: DC1_SPINE2
     description: DC1_SPINE2_Ethernet2
-  - ip_address: 172.31.10.190
+  - ip_address: 172.31.10.88
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65100'
     peer: DC1_SPINE3
@@ -71,8 +71,8 @@ router_bgp:
       activate: true
   vrfs:
   - name: RED
-    router_id: 10.255.10.32
-    rd: 10.255.10.32:110
+    router_id: 10.255.10.15
+    rd: 10.255.10.15:110
     route_targets:
       import:
       - address_family: evpn
@@ -87,7 +87,7 @@ router_bgp:
   vlans:
   - id: 111
     tenant: Tenant_A
-    rd: 10.255.10.32:10111
+    rd: 10.255.10.15:10111
     route_targets:
       both:
       - 10111:10111
@@ -95,7 +95,7 @@ router_bgp:
     - learned
   - id: 112
     tenant: Tenant_A
-    rd: 10.255.10.32:10112
+    rd: 10.255.10.15:10112
     route_targets:
       both:
       - 10112:10112
@@ -158,7 +158,7 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.10.187/31
+  ip_address: 172.31.10.85/31
 - name: Ethernet2
   peer: DC1_SPINE2
   peer_interface: Ethernet2
@@ -167,7 +167,7 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.10.189/31
+  ip_address: 172.31.10.87/31
 - name: Ethernet3
   peer: DC1_SPINE3
   peer_interface: Ethernet2
@@ -176,21 +176,21 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.10.191/31
+  ip_address: 172.31.10.89/31
 loopback_interfaces:
 - name: Loopback0
   description: EVPN_Overlay_Peering
   shutdown: false
-  ip_address: 10.255.10.32/32
+  ip_address: 10.255.10.15/32
 - name: Loopback1
   description: VTEP_VXLAN_Tunnel_Source
   shutdown: false
-  ip_address: 10.255.11.32/32
+  ip_address: 10.255.11.15/32
 - name: Loopback110
   description: RED_VTEP_DIAGNOSTICS
   shutdown: false
   vrf: RED
-  ip_address: 10.255.110.32/32
+  ip_address: 10.255.110.15/32
 prefix_lists:
 - name: PL-LOOPBACKS-EVPN-OVERLAY
   sequence_numbers:
@@ -249,6 +249,6 @@ vxlan_interface:
         vni: 110
 virtual_source_nat_vrfs:
 - name: RED
-  ip_address: 10.255.110.32
+  ip_address: 10.255.110.15
 metadata:
   platform: cEOS-LAB

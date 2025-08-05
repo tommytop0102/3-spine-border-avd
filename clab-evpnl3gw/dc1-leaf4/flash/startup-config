@@ -1,4 +1,4 @@
-! Startup-config last modified at Tue Aug  5 02:53:14 2025 by admin
+! Startup-config last modified at Tue Aug  5 03:43:03 2025 by admin
 ! device: DC1-LEAF4 (cEOSLab, EOS-4.32.5M-41241764.4325M (engineering build))
 !
 no aaa root
@@ -48,19 +48,19 @@ interface Ethernet1
    description P2P_LINK_TO_DC1_SPINE1_Ethernet4
    mtu 9214
    no switchport
-   ip address 172.31.10.199/31
+   ip address 172.31.10.97/31
 !
 interface Ethernet2
    description P2P_LINK_TO_DC1_SPINE2_Ethernet4
    mtu 9214
    no switchport
-   ip address 172.31.10.201/31
+   ip address 172.31.10.99/31
 !
 interface Ethernet3
    description P2P_LINK_TO_DC1_SPINE3_Ethernet4
    mtu 9214
    no switchport
-   ip address 172.31.10.203/31
+   ip address 172.31.10.101/31
 !
 interface Ethernet4
 !
@@ -68,16 +68,16 @@ interface Ethernet5
 !
 interface Loopback0
    description EVPN_Overlay_Peering
-   ip address 10.255.10.34/32
+   ip address 10.255.10.17/32
 !
 interface Loopback1
    description VTEP_VXLAN_Tunnel_Source
-   ip address 10.255.11.34/32
+   ip address 10.255.11.17/32
 !
 interface Loopback110
    description RED_VTEP_DIAGNOSTICS
    vrf RED
-   ip address 10.255.110.34/32
+   ip address 10.255.110.17/32
 !
 interface Management0
    description oob_management
@@ -103,7 +103,7 @@ interface Vxlan1
    vxlan vrf RED vni 110
 !
 ip virtual-router mac-address 02:04:02:04:02:04
-ip address virtual source-nat vrf RED address 10.255.110.34
+ip address virtual source-nat vrf RED address 10.255.110.17
 !
 ip routing
 no ip routing vrf MGMT
@@ -124,7 +124,7 @@ router bfd
    multihop interval 300 min-rx 300 multiplier 3
 !
 router bgp 65104
-   router-id 10.255.10.34
+   router-id 10.255.10.17
    no bgp default ipv4-unicast
    distance bgp 20 200 200
    maximum-paths 4 ecmp 4
@@ -146,24 +146,24 @@ router bgp 65104
    neighbor 10.255.10.3 peer group EVPN-OVERLAY-PEERS
    neighbor 10.255.10.3 remote-as 65100
    neighbor 10.255.10.3 description DC1_SPINE3
-   neighbor 172.31.10.198 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.10.198 remote-as 65100
-   neighbor 172.31.10.198 description DC1_SPINE1_Ethernet4
-   neighbor 172.31.10.200 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.10.200 remote-as 65100
-   neighbor 172.31.10.200 description DC1_SPINE2_Ethernet4
-   neighbor 172.31.10.202 peer group IPv4-UNDERLAY-PEERS
-   neighbor 172.31.10.202 remote-as 65100
-   neighbor 172.31.10.202 description DC1_SPINE3_Ethernet4
+   neighbor 172.31.10.96 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.10.96 remote-as 65100
+   neighbor 172.31.10.96 description DC1_SPINE1_Ethernet4
+   neighbor 172.31.10.98 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.10.98 remote-as 65100
+   neighbor 172.31.10.98 description DC1_SPINE2_Ethernet4
+   neighbor 172.31.10.100 peer group IPv4-UNDERLAY-PEERS
+   neighbor 172.31.10.100 remote-as 65100
+   neighbor 172.31.10.100 description DC1_SPINE3_Ethernet4
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan 111
-      rd 10.255.10.34:10111
+      rd 10.255.10.17:10111
       route-target both 10111:10111
       redistribute learned
    !
    vlan 112
-      rd 10.255.10.34:10112
+      rd 10.255.10.17:10112
       route-target both 10112:10112
       redistribute learned
    !
@@ -175,10 +175,10 @@ router bgp 65104
       neighbor IPv4-UNDERLAY-PEERS activate
    !
    vrf RED
-      rd 10.255.10.34:110
+      rd 10.255.10.17:110
       route-target import evpn 110:110
       route-target export evpn 110:110
-      router-id 10.255.10.34
+      router-id 10.255.10.17
       redistribute connected
 !
 router multicast

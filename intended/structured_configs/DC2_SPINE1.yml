@@ -36,72 +36,72 @@ router_bgp:
   - source_protocol: connected
     route_map: RM-CONN-2-BGP
   neighbors:
-  - ip_address: 172.31.20.205
+  - ip_address: 172.31.20.139
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65201'
     peer: DC2_LEAF1
     description: DC2_LEAF1_Ethernet1
-  - ip_address: 172.31.20.211
+  - ip_address: 172.31.20.145
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65202'
     peer: DC2_LEAF2
     description: DC2_LEAF2_Ethernet1
-  - ip_address: 172.31.20.217
+  - ip_address: 172.31.20.151
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65203'
     peer: DC2_LEAF3
     description: DC2_LEAF3_Ethernet1
-  - ip_address: 172.31.20.223
+  - ip_address: 172.31.20.157
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65204'
     peer: DC2_LEAF4
     description: DC2_LEAF4_Ethernet1
-  - ip_address: 172.31.20.139
+  - ip_address: 172.31.20.121
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65221'
     peer: DC2_BORDER_LEAF1
     description: DC2_BORDER_LEAF1_Ethernet1
-  - ip_address: 172.31.20.145
+  - ip_address: 172.31.20.127
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65222'
     peer: DC2_BORDER_LEAF2
     description: DC2_BORDER_LEAF2_Ethernet1
-  - ip_address: 172.31.20.151
+  - ip_address: 172.31.20.133
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '65223'
     peer: DC2_BORDER_LEAF3
     description: DC2_BORDER_LEAF3_Ethernet1
-  - ip_address: 10.255.20.24
+  - ip_address: 10.255.20.21
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_BORDER_LEAF1
     description: DC2_BORDER_LEAF1
     remote_as: '65221'
-  - ip_address: 10.255.20.25
+  - ip_address: 10.255.20.22
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_BORDER_LEAF2
     description: DC2_BORDER_LEAF2
     remote_as: '65222'
-  - ip_address: 10.255.20.26
+  - ip_address: 10.255.20.23
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_BORDER_LEAF3
     description: DC2_BORDER_LEAF3
     remote_as: '65223'
-  - ip_address: 10.255.20.35
+  - ip_address: 10.255.20.24
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_LEAF1
     description: DC2_LEAF1
     remote_as: '65201'
-  - ip_address: 10.255.20.36
+  - ip_address: 10.255.20.25
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_LEAF2
     description: DC2_LEAF2
     remote_as: '65202'
-  - ip_address: 10.255.20.37
+  - ip_address: 10.255.20.26
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_LEAF3
     description: DC2_LEAF3
     remote_as: '65203'
-  - ip_address: 10.255.20.38
+  - ip_address: 10.255.20.27
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_LEAF4
     description: DC2_LEAF4
@@ -161,7 +161,7 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.20.204/31
+  ip_address: 172.31.20.138/31
 - name: Ethernet2
   peer: DC2_LEAF2
   peer_interface: Ethernet1
@@ -170,7 +170,7 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.20.210/31
+  ip_address: 172.31.20.144/31
 - name: Ethernet3
   peer: DC2_LEAF3
   peer_interface: Ethernet1
@@ -179,7 +179,7 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.20.216/31
+  ip_address: 172.31.20.150/31
 - name: Ethernet4
   peer: DC2_LEAF4
   peer_interface: Ethernet1
@@ -188,7 +188,7 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.20.222/31
+  ip_address: 172.31.20.156/31
 - name: Ethernet5
   peer: DC2_BORDER_LEAF1
   peer_interface: Ethernet1
@@ -197,7 +197,7 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.20.138/31
+  ip_address: 172.31.20.120/31
 - name: Ethernet6
   peer: DC2_BORDER_LEAF2
   peer_interface: Ethernet1
@@ -206,7 +206,7 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.20.144/31
+  ip_address: 172.31.20.126/31
 - name: Ethernet7
   peer: DC2_BORDER_LEAF3
   peer_interface: Ethernet1
@@ -215,7 +215,7 @@ ethernet_interfaces:
   shutdown: false
   mtu: 9214
   type: routed
-  ip_address: 172.31.20.150/31
+  ip_address: 172.31.20.132/31
 loopback_interfaces:
 - name: Loopback0
   description: EVPN_Overlay_Peering

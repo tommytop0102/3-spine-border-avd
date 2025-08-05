@@ -47,7 +47,7 @@ l3leaf:
       nodes:
         - name: DC1_LEAF1
           bgp_as: '65101'
-          id: 31
+          id: 14
           mgmt_ip: 192.168.4.31/24
           uplink_switch_interfaces:
             - Ethernet1
@@ -55,7 +55,7 @@ l3leaf:
             - Ethernet1
         - name: DC1_LEAF2
           bgp_as: '65102'
-          id: 32
+          id: 15
           mgmt_ip: 192.168.4.32/24
           uplink_switch_interfaces:
             - Ethernet2
@@ -63,7 +63,7 @@ l3leaf:
             - Ethernet2
         - name: DC1_LEAF3
           bgp_as: '65104'
-          id: 33
+          id: 16
           mgmt_ip: 192.168.4.33/24
           uplink_switch_interfaces:
             - Ethernet3
@@ -71,7 +71,7 @@ l3leaf:
             - Ethernet3
         - name: DC1_LEAF4
           bgp_as: '65104'
-          id: 34
+          id: 17
           mgmt_ip: 192.168.4.34/24
           uplink_switch_interfaces:
             - Ethernet4
@@ -98,7 +98,7 @@ l3leaf:
       nodes:
         - name: DC1_BORDER_LEAF1
           bgp_as: '65121'
-          id: 21
+          id: 11
           mgmt_ip: 192.168.4.21/24
           uplink_switch_interfaces:
             - Ethernet5
@@ -106,7 +106,7 @@ l3leaf:
             - Ethernet5
         - name: DC1_BORDER_LEAF2
           bgp_as: '65122'
-          id: 22
+          id: 12
           mgmt_ip: 192.168.4.22/24
           uplink_switch_interfaces:
             - Ethernet6
@@ -114,7 +114,7 @@ l3leaf:
             - Ethernet6
         - name: DC1_BORDER_LEAF3
           bgp_as: '65123'
-          id: 23
+          id: 13
           mgmt_ip: 192.168.4.23/24
           uplink_switch_interfaces:
             - Ethernet7
