@@ -10,13 +10,13 @@ spine:
     loopback_ipv4_pool: 10.255.20.0/24
   nodes:
     - name: DC2_SPINE1
-      id: 1
+      id: 4
       mgmt_ip: 192.168.4.111/24
     - name: DC2_SPINE2
-      id: 2
+      id: 5
       mgmt_ip: 192.168.4.112/24
     - name: DC2_SPINE3
-      id: 3
+      id: 6
       mgmt_ip: 192.168.4.113/24
 
 l3leaf:

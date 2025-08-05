@@ -292,7 +292,7 @@ interface Ethernet7
 
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
-| Loopback0 | EVPN_Overlay_Peering | default | 10.255.20.3/32 |
+| Loopback0 | EVPN_Overlay_Peering | default | 10.255.20.6/32 |
 
 ##### IPv6
 
@@ -307,7 +307,7 @@ interface Ethernet7
 interface Loopback0
    description EVPN_Overlay_Peering
    no shutdown
-   ip address 10.255.20.3/32
+   ip address 10.255.20.6/32
 ```
 
 ## Routing
@@ -370,7 +370,7 @@ ASN Notation: asplain
 
 | BGP AS | Router ID |
 | ------ | --------- |
-| 65200 | 10.255.20.3 |
+| 65200 | 10.255.20.6 |
 
 | BGP Tuning |
 | ---------- |
@@ -432,7 +432,7 @@ ASN Notation: asplain
 ```eos
 !
 router bgp 65200
-   router-id 10.255.20.3
+   router-id 10.255.20.6
    distance bgp 20 200 200
    maximum-paths 4 ecmp 4
    no bgp default ipv4-unicast

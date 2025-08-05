@@ -1,4 +1,4 @@
-! Startup-config last modified at Tue Aug  5 03:11:08 2025 by admin
+! Startup-config last modified at Tue Aug  5 03:31:17 2025 by admin
 ! device: DC2-SPINE2 (cEOSLab, EOS-4.32.5M-41241764.4325M (engineering build))
 !
 no aaa root
@@ -79,7 +79,7 @@ interface Ethernet7
 !
 interface Loopback0
    description EVPN_Overlay_Peering
-   ip address 10.255.20.2/32
+   ip address 10.255.20.5/32
 !
 interface Management0
    description oob_management
@@ -103,7 +103,7 @@ router bfd
    multihop interval 300 min-rx 300 multiplier 3
 !
 router bgp 65200
-   router-id 10.255.20.2
+   router-id 10.255.20.5
    no bgp default ipv4-unicast
    distance bgp 20 200 200
    maximum-paths 4 ecmp 4

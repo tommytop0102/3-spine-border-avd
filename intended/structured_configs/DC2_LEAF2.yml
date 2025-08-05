@@ -50,17 +50,17 @@ router_bgp:
     remote_as: '65200'
     peer: DC2_SPINE3
     description: DC2_SPINE3_Ethernet2
-  - ip_address: 10.255.20.1
+  - ip_address: 10.255.20.4
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_SPINE1
     description: DC2_SPINE1
     remote_as: '65200'
-  - ip_address: 10.255.20.2
+  - ip_address: 10.255.20.5
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_SPINE2
     description: DC2_SPINE2
     remote_as: '65200'
-  - ip_address: 10.255.20.3
+  - ip_address: 10.255.20.6
     peer_group: EVPN-OVERLAY-PEERS
     peer: DC2_SPINE3
     description: DC2_SPINE3

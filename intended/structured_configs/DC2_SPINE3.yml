@@ -2,7 +2,7 @@ hostname: DC2_SPINE3
 is_deployed: true
 router_bgp:
   as: '65200'
-  router_id: 10.255.20.3
+  router_id: 10.255.20.6
   distance:
     external_routes: 20
     internal_routes: 200
@@ -220,7 +220,7 @@ loopback_interfaces:
 - name: Loopback0
   description: EVPN_Overlay_Peering
   shutdown: false
-  ip_address: 10.255.20.3/32
+  ip_address: 10.255.20.6/32
 prefix_lists:
 - name: PL-LOOPBACKS-EVPN-OVERLAY
   sequence_numbers:

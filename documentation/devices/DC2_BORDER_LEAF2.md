@@ -546,9 +546,9 @@ ASN Notation: asplain
 | 10.255.10.21 | 65121 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
 | 10.255.10.22 | 65122 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
 | 10.255.10.23 | 65123 | default | - | Inherited from peer group EVPN-OVERLAY-CORE | Inherited from peer group EVPN-OVERLAY-CORE | - | Inherited from peer group EVPN-OVERLAY-CORE | - | - | - | - |
-| 10.255.20.1 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.2 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.3 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.4 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.5 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.6 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 172.16.30.87 | 65300 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 172.16.30.89 | 65300 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 172.16.30.91 | 65300 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
@@ -619,15 +619,15 @@ router bgp 65222
    neighbor 10.255.10.23 peer group EVPN-OVERLAY-CORE
    neighbor 10.255.10.23 remote-as 65123
    neighbor 10.255.10.23 description DC1_BORDER_LEAF3
-   neighbor 10.255.20.1 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.1 remote-as 65200
-   neighbor 10.255.20.1 description DC2_SPINE1
-   neighbor 10.255.20.2 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.2 remote-as 65200
-   neighbor 10.255.20.2 description DC2_SPINE2
-   neighbor 10.255.20.3 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.3 remote-as 65200
-   neighbor 10.255.20.3 description DC2_SPINE3
+   neighbor 10.255.20.4 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.4 remote-as 65200
+   neighbor 10.255.20.4 description DC2_SPINE1
+   neighbor 10.255.20.5 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.5 remote-as 65200
+   neighbor 10.255.20.5 description DC2_SPINE2
+   neighbor 10.255.20.6 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.6 remote-as 65200
+   neighbor 10.255.20.6 description DC2_SPINE3
    neighbor 172.16.30.87 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.16.30.87 remote-as 65300
    neighbor 172.16.30.87 local-as 65205 no-prepend replace-as

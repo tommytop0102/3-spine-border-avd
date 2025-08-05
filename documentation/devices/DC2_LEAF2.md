@@ -508,9 +508,9 @@ ASN Notation: asplain
 
 | Neighbor | Remote AS | VRF | Shutdown | Send-community | Maximum-routes | Allowas-in | BFD | RIB Pre-Policy Retain | Route-Reflector Client | Passive | TTL Max Hops |
 | -------- | --------- | --- | -------- | -------------- | -------------- | ---------- | --- | --------------------- | ---------------------- | ------- | ------------ |
-| 10.255.20.1 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.2 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
-| 10.255.20.3 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.4 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.5 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.20.6 | 65200 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 172.31.20.210 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 172.31.20.212 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 172.31.20.214 | 65200 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
@@ -554,15 +554,15 @@ router bgp 65202
    neighbor IPv4-UNDERLAY-PEERS peer group
    neighbor IPv4-UNDERLAY-PEERS send-community
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
-   neighbor 10.255.20.1 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.1 remote-as 65200
-   neighbor 10.255.20.1 description DC2_SPINE1
-   neighbor 10.255.20.2 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.2 remote-as 65200
-   neighbor 10.255.20.2 description DC2_SPINE2
-   neighbor 10.255.20.3 peer group EVPN-OVERLAY-PEERS
-   neighbor 10.255.20.3 remote-as 65200
-   neighbor 10.255.20.3 description DC2_SPINE3
+   neighbor 10.255.20.4 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.4 remote-as 65200
+   neighbor 10.255.20.4 description DC2_SPINE1
+   neighbor 10.255.20.5 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.5 remote-as 65200
+   neighbor 10.255.20.5 description DC2_SPINE2
+   neighbor 10.255.20.6 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.20.6 remote-as 65200
+   neighbor 10.255.20.6 description DC2_SPINE3
    neighbor 172.31.20.210 peer group IPv4-UNDERLAY-PEERS
    neighbor 172.31.20.210 remote-as 65200
    neighbor 172.31.20.210 description DC2_SPINE1_Ethernet2
